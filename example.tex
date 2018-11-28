@@ -1,9 +1,14 @@
 \documentclass[12pt]{article}
 \usepackage{uswdwms}
 
-% \modulecode{IY2D502}
+% Setup document variables
+\def \unicoursename{Applied Cyber Security}
+\def \unimodulecode{IY2D502}
+\def \unimodulename{Secure Systems}
+\def \unimodulelect{Elaine Haigh}
 \title{Analysis of secure coding principles and practices}
-\author{17135397}
+\author{David Sanders}
+\def \unistudentid{17135397}
 \date{\today}
 
 \makeatletter
@@ -11,44 +16,44 @@
 \let\theauthor\@author
 \let\thedate\@date
 \makeatother
+%
 
+% Setup header and footer
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\theauthor}
 \lhead{\thetitle}
 \cfoot{\thepage}
+%
 
 \begin{document}
-
-
 
 \begin{titlepage}
   \centering
   % \vspace*{0.5 cm}
   \includegraphics[scale = 0.15]{usw_logo.jpg}\\
-  \textsc{\LARGE University of South Wales\\\Large Applied Cyber Security}\\[2cm]
+  \textsc{\LARGE University of South Wales\\\Large \unicoursename}\\[2cm]
 
   \rule{\linewidth}{0.2 mm}\\[0.5cm]
-  % { \huge \bfseries IY2D502}\\
-  { \huge IY2D502}\\
+  {\huge \unimodulecode}\\
   \rule{\linewidth}{0.2 mm}\\[0.5cm]
-  { \huge \bfseries Secure Systems}\\
+  {\huge\bfseries \unimodulename}\\
   \rule{\linewidth}{0.2 mm}\\[0.5cm]
   \textsc{\Large \thetitle}\\
   \rule{\linewidth}{0.2 mm}\\[2cm]
 
-  { \large \textit{\thedate}}\\[2cm]
+  {\large \textit{\thedate}}\\[2cm]
 
   \begin{minipage}[t]{0.4\textwidth}
     \begin{flushleft} \large
       \textit{Submitted to:}\\
-      Elaine Haigh\\IY2D502\\University of South Wales
+      \unimodulelect
     \end{flushleft}
   \end{minipage}
   \begin{minipage}[t]{0.4\textwidth}
     \begin{flushright} \large
       \textit{Submitted by:}\\
-      David Sanders\\17135397\\2018Y2
+      \theauthor\\\unistudentid
     \end{flushright}
   \end{minipage}
 \end{titlepage}
