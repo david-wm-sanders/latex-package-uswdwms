@@ -1,0 +1,50 @@
+% Packages imported by the style with some configuration for certain packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[round]{natbib}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx, makecell}
+\usepackage{pdfpages}
+\usepackage[bottom]{footmisc}
+\usepackage{caption}
+% -
+
+% Configuration
+% Change font to Palatino
+\renewcommand{\rmdefault}{ppl}
+% Change the list item spacing
+\setlist{noitemsep}
+% Set the bibliography style
+\bibliographystyle{usw}
+% -
+
+% Custom functions
+% Set up an inline todo command
+\newcommand{\todo}[1]{\textcolor{red}{todo: #1}}
+
+% Set up a todo environment
+\newenvironment{todoenv}
+  {\color{red}todo:}
+  {\color{black}}
+
+% Set up a terminal command block
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\term}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+% Set up a command to make title definitions for USW reports
+% Usage: \uswreporttitle{modulecode}{moduletitle}{assessmenttitle}
+\newcommand{\uswreporttitle}[3]{\title{#1\\{\textit{\small #2}}\\~\\#3}}
+
+% Set up a command to make author definitions for USW reports
+% Usage: \uswreportauthor{name}{id}
+\newcommand{\uswreportauthor}[2]{\author{#1\\{\LARGE #2}}}
+%-
