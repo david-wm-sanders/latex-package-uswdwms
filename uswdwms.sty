@@ -46,7 +46,7 @@
 \newcommand{\makeheadersandfooters}{
   \fancyhf{}
   \rhead{\scriptsize \unistudentid}
-  \lhead{\scriptsize \unimodulecode: \thetitle}
+  \lhead{\scriptsize\scshape \unimodulecode: \thetitle}
   \cfoot{\thepage}
 }
 
@@ -66,9 +66,27 @@
     \rule{\linewidth}{0.2mm}\\[0.5cm]
 
     % Insert report title
+    %% v1
+    % {\Huge\bfseries \unimodulecode}\\
+    % \rule{\linewidth}{0.1mm}\\[0.5cm]
+    % \textsc{\Large \unimodulename}\\
+    %%
+    %% v2
+    % \begin{minipage}[t]{0.45\textwidth}
+    %   \begin{flushright}
+    %     {\Huge\bfseries \unimodulecode}
+    %   \end{flushright}
+    % \end{minipage}
+    % \begin{minipage}[t]{0.45\textwidth}
+    %   \begin{flushleft}
+    %     \textsc{\Large \unimodulename}
+    %   \end{flushleft}
+    % \end{minipage}\\
+    %%
+    %% v3
     {\Huge\bfseries \unimodulecode}\\
-    \rule{\linewidth}{0.1mm}\\[0.5cm]
     \textsc{\Large \unimodulename}\\
+    %%
     \rule{\linewidth}{0.1mm}\\[0.5cm]
     \textsc{\Large \thetitle}\\
 
