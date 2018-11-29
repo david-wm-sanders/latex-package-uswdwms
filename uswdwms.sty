@@ -1,5 +1,6 @@
 % Packages imported by the style with some configuration for certain packages
 \usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[a4paper, margin=0.75in]{geometry}
@@ -19,6 +20,9 @@
 % -
 
 % Configuration
+% Configure colours
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{hdrftr-gray}{gray}{0.75}
 % Set the graphicx path
 \graphicspath{{images/}}
 % Change font to Palatino
@@ -27,6 +31,17 @@
 \setlist{noitemsep}
 % Set the bibliography style
 \bibliographystyle{usw}
+% Configure fancyhdr
+\renewcommand{\headrulewidth}{0.1mm}
+\renewcommand{\footrulewidth}{0.1mm}
+\renewcommand{\headrule}{
+  \vspace{0.8mm}\vspace{-\baselineskip}
+  \textcolor{hdrftr-gray}{\rule{\linewidth}{\headrulewidth}}
+}
+\renewcommand{\footrule}{
+  % \vspace*{0.8mm}\vspace*{\baselineskip}
+  \textcolor{hdrftr-gray}{\rule{\linewidth}{\footrulewidth}}
+}
 % -
 
 % Custom functions
@@ -39,15 +54,15 @@
   {\color{black}}
 
 % Set up a terminal command block
-\definecolor{light-gray}{gray}{0.95}
 \newcommand{\term}[1]{\colorbox{light-gray}{\texttt{#1}}}
 
 % Make fancy headers and footers for reports
 \newcommand{\makeheadersandfooters}{
   \fancyhf{}
-  \rhead{\scriptsize \unistudentid}
-  \lhead{\scriptsize\scshape \unimodulecode: \thetitle}
-  \cfoot{\thepage}
+  \rhead{\textcolor{hdrftr-gray}{\scriptsize \thedate}}
+  \lhead{\textcolor{hdrftr-gray}{\scriptsize\scshape \unimodulecode: \thetitle}}
+  \lfoot{\textcolor{hdrftr-gray}{\footnotesize \unistudentid}}
+  \rfoot{\textcolor{hdrftr-gray}{\footnotesize \thepage}}
 }
 
 % Make a fancy title page
@@ -112,3 +127,4 @@
     \end{minipage}
   \end{titlepage}
 }
+% -
