@@ -41,3 +41,11 @@
 % Set up a terminal command block
 \definecolor{light-gray}{gray}{0.95}
 \newcommand{\term}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+% Make fancy headers and footers for reports
+\newcommand{\makeheadersandfooters}{
+  \fancyhf{}
+  \rhead{\scriptsize \unistudentid}
+  \lhead{\scriptsize \unimodulecode: \thetitle}
+  \cfoot{\thepage}
+}
