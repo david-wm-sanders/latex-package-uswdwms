@@ -97,16 +97,18 @@
     % Insert italicised date
     {\large \textit{\thedate}}\\[2cm]
 
-    \begin{minipage}[t]{0.4\linewidth}
-      \begin{flushright}
-        \textcolor{fader-gray}{\textit{Submitted to:}}\\
-        \unimodulelect\\
-      \end{flushright}
-    \end{minipage}\hspace{1cm}\textcolor{light-gray}{\vline}\hspace{1cm}\begin{minipage}[t]{0.4\linewidth}
-      \begin{flushleft}
-        \textcolor{fader-gray}{\textit{Submitted by:}}\\
-        \theauthor\\\unistudentid\\
-      \end{flushleft}
+    % \begin{minipage}[t][5cm][t]{0.4\linewidth}
+    \begin{minipage}[t]{0.33\linewidth}
+      \vspace{0pt}
+      \raggedright
+      \textcolor{fader-gray}{\textit{Submitted to:}}\\
+      \unimodulelect\\
+    \end{minipage}\hspace{1mm}\textcolor{light-gray}{\vline width 0.1mm}\hspace{1mm}~%
+    \begin{minipage}[t]{0.33\linewidth}
+      \vspace{0pt}
+      \raggedleft
+      \textcolor{fader-gray}{\textit{Author:}}\\
+      \theauthor\\\unistudentid\\
     \end{minipage}\\
 
   \end{titlepage}
