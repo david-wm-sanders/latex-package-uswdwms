@@ -21,8 +21,9 @@
 
 % Configuration
 % Configure colours
-\definecolor{light-gray}{gray}{0.95}
-\definecolor{hdrftr-gray}{gray}{0.75}
+\definecolor{terminalbg-gray}{gray}{0.95}
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{fader-gray}{gray}{0.5}
 % Set the graphicx path
 \graphicspath{{images/}}
 % Change font to Palatino
@@ -36,11 +37,11 @@
 \renewcommand{\footrulewidth}{0.1mm}
 \renewcommand{\headrule}{
   \vspace{0.8mm}\vspace{-\baselineskip}
-  \textcolor{hdrftr-gray}{\rule{\linewidth}{\headrulewidth}}
+  \textcolor{fader-gray}{\rule{\linewidth}{\headrulewidth}}
 }
 \renewcommand{\footrule}{
   % \vspace*{0.8mm}\vspace*{\baselineskip}
-  \textcolor{hdrftr-gray}{\rule{\linewidth}{\footrulewidth}}
+  \textcolor{fader-gray}{\rule{\linewidth}{\footrulewidth}}
 }
 % -
 
@@ -54,44 +55,44 @@
   {\color{black}}
 
 % Set up a terminal command block
-\newcommand{\term}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\newcommand{\term}[1]{\colorbox{terminalbg-gray}{\texttt{#1}}}
 
 % Make fancy headers and footers for reports
 \newcommand{\makeheadersandfooters}{
   \fancyhf{}
-  \rhead{\textcolor{hdrftr-gray}{\scriptsize \thedate}}
-  \lhead{\textcolor{hdrftr-gray}{\scriptsize\scshape \unimodulecode: \thetitle}}
-  \lfoot{\textcolor{hdrftr-gray}{\footnotesize \unistudentid}}
-  \rfoot{\textcolor{hdrftr-gray}{\footnotesize \thepage}}
+  \rhead{\textcolor{fader-gray}{\scriptsize \thedate}}
+  \lhead{\textcolor{fader-gray}{\scriptsize\scshape \unimodulecode: \thetitle}}
+  \lfoot{\textcolor{fader-gray}{\footnotesize \unistudentid}}
+  \rfoot{\textcolor{fader-gray}{\footnotesize \thepage}}
 }
 
 % Make a fancy title page
 \newcommand{\makeuswtitlepage}{
   \begin{titlepage}
     \centering
-    % \vspace*{0.5 cm}
+    \vspace*{2cm}
     % Insert logo
     \includegraphics[scale = 0.15]{usw_logo.jpg}\\
     % Insert institution and course titles
     \textsc{\LARGE \institutionid\\\Large \unicoursename}\\[2cm]
 
     % Insert double-line top
-    \rule{\linewidth}{0.2mm}\\
-    \vspace{0.8mm}\vspace{-\baselineskip}
-    \rule{\linewidth}{0.2mm}\\[0.5cm]
+    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\
+    \vspace{0.4mm}\vspace{-\baselineskip}
+    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\[0.5cm]
 
     % Insert report title
     %% v3
     {\Huge\bfseries \unimodulecode}\\
     \textsc{\Large \unimodulename}\\
     %%
-    \rule{\linewidth}{0.1mm}\\[0.5cm]
+    \textcolor{light-gray}{\rule{\linewidth}{0.1mm}}\\[0.5cm]
     \textsc{\Large \thetitle}\\
 
     % Insert lines bottom
-    \rule{\linewidth}{0.2mm}\\
-    \vspace{0.8mm}\vspace{-\baselineskip}
-    \rule{\linewidth}{0.2mm}\\[2cm]
+    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\
+    \vspace{0.4mm}\vspace{-\baselineskip}
+    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\[2cm]
 
     % Insert italicised date
     {\large \textit{\thedate}}\\[2cm]
