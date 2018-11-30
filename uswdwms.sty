@@ -74,41 +74,41 @@
     % Insert logo
     \includegraphics[scale = 0.15]{usw_logo.jpg}\\
     % Insert institution and course titles
-    \textsc{\LARGE \institutionid\\\Large \unicoursename}\\[2cm]
+    \textsc{\LARGE \institutionid\\\Large \unicoursename}\\[1cm]
 
     % Insert double-line top
-    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\
-    \vspace{0.4mm}\vspace{-\baselineskip}
-    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\[0.5cm]
+    \textcolor{fader-gray}{\rule{\linewidth}{0.2mm}}\\
+    \vspace{0.8mm}\vspace{-\baselineskip}
+    \textcolor{fader-gray}{\rule{\linewidth}{0.2mm}}\\[0.5cm]
 
     % Insert report title
     %% v3
     {\Huge\bfseries \unimodulecode}\\
     \textsc{\Large \unimodulename}\\
     %%
-    \textcolor{light-gray}{\rule{\linewidth}{0.1mm}}\\[0.5cm]
+    \textcolor{light-gray}{\rule{\linewidth}{0.2mm}}\\[0.5cm]
     \textsc{\Large \thetitle}\\
 
     % Insert lines bottom
-    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\
-    \vspace{0.4mm}\vspace{-\baselineskip}
-    \textcolor{fader-gray}{\rule{\linewidth}{0.1mm}}\\[2cm]
+    \textcolor{fader-gray}{\rule{\linewidth}{0.2mm}}\\
+    \vspace{0.8mm}\vspace{-\baselineskip}
+    \textcolor{fader-gray}{\rule{\linewidth}{0.2mm}}\\[2cm]
 
     % Insert italicised date
     {\large \textit{\thedate}}\\[2cm]
 
-    \begin{minipage}[t]{0.4\textwidth}
-      \begin{flushleft} \large
-        \textit{Submitted to:}\\
-        \unimodulelect
-      \end{flushleft}
-    \end{minipage}~
-    \begin{minipage}[t]{0.4\textwidth}
-      \begin{flushright} \large
-        \textit{Submitted by:}\\
-        \theauthor\\\unistudentid
+    \begin{minipage}[t]{0.4\linewidth}
+      \begin{flushright}
+        \textcolor{fader-gray}{\textit{Submitted to:}}\\
+        \unimodulelect\\
       \end{flushright}
-    \end{minipage}
+    \end{minipage}\hspace{1cm}\textcolor{light-gray}{\vline}\hspace{1cm}\begin{minipage}[t]{0.4\linewidth}
+      \begin{flushleft}
+        \textcolor{fader-gray}{\textit{Submitted by:}}\\
+        \theauthor\\\unistudentid\\
+      \end{flushleft}
+    \end{minipage}\\
+
   \end{titlepage}
 }
 % -
