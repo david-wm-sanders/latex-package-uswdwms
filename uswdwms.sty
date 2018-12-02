@@ -58,12 +58,12 @@
 \newcommand{\term}[1]{\colorbox{terminalbg-gray}{\texttt{#1}}}
 
 % Make fancy headers and footers for reports
-\newcommand{\makeheadersandfooters}{
+\newcommand{\makeheadersandfooters}[4]{
   \fancyhf{}
-  \rhead{\textcolor{fader-gray}{\scriptsize \thedate}}
-  \lhead{\textcolor{fader-gray}{\scriptsize\scshape \unimodulecode: \thetitle}}
-  \lfoot{\textcolor{fader-gray}{\footnotesize \unistudentid}}
-  \rfoot{\textcolor{fader-gray}{\footnotesize \thepage}}
+  \lhead{\textcolor{fader-gray}{#1}}
+  \rhead{\textcolor{fader-gray}{#2}}
+  \lfoot{\textcolor{fader-gray}{#3}}
+  \rfoot{\textcolor{fader-gray}{#4}}
 }
 
 % Make a fancy title page
