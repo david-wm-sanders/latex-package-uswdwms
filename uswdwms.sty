@@ -19,6 +19,7 @@
 \usepackage{caption}
 \usepackage{textcomp}
 \usepackage{latexsym}
+\usepackage[newfloat]{minted}
 % -
 
 % Configuration
@@ -27,6 +28,7 @@
 \def\UrlBreaks{\do\/\do-}
 % Configure colours
 \definecolor{terminalbg-gray}{gray}{0.95}
+\definecolor{ultralight-gray}{gray}{0.9}
 \definecolor{light-gray}{gray}{0.75}
 \definecolor{fader-gray}{gray}{0.5}
 % Set the default graphicx path
@@ -48,6 +50,9 @@
   % \vspace*{0.8mm}\vspace*{\baselineskip}
   \textcolor{light-gray}{\rule{\linewidth}{\footrulewidth}}
 }
+% Set the default minted style
+\usemintedstyle{rainbow_dash}
+\setminted{autogobble,breaklines,fontsize=\small,frame=leftline,framerule=0.2pt,framesep=2mm,linenos,numbersep=3pt,python3,rulecolor=ultralight-gray}
 % -
 
 % Custom functions
@@ -112,7 +117,7 @@
     \begin{minipage}[t]{0.4\linewidth}
       \vspace{0pt}
       \raggedright
-      \textcolor{fader-gray}{\textit{Author:}}\\
+      \textcolor{fader-gray}{\textit{Author(s):}}\\
       \theauthor\\\unistudentid\\
     \end{minipage}\\
 
