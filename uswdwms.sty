@@ -5,6 +5,7 @@
 \usepackage{lmodern}
 \usepackage[a4paper, margin=0.75in]{geometry}
 \usepackage{enumitem}
+\usepackage[bottom]{footmisc}
 \usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage[round]{natbib}
@@ -17,7 +18,6 @@
 \usepackage[table]{xcolor}
 \usepackage{colortbl}
 \usepackage{pdfpages}
-\usepackage[bottom]{footmisc}
 \usepackage{caption}
 \usepackage{textcomp}
 \usepackage{latexsym}
@@ -36,6 +36,7 @@
 \definecolor{ultralight-gray}{gray}{0.9}
 \definecolor{light-gray}{gray}{0.75}
 \definecolor{fader-gray}{gray}{0.5}
+\definecolor{deep-gray}{gray}{0.4}
 \definecolor{nicer-blue}{HTML}{005cc5}
 % Configure vuln colours
 \definecolor{critical-red}{HTML}{cc0500}
@@ -187,28 +188,6 @@
   \end{titlepage}
 }
 
-% Make a fancy contact card for penetration test reports
-\newcommand{\makepersoncontact}[4]{
-  \begin{table}[H]
-    % \centering
-    \newcolumntype{i}{>{\raggedright\arraybackslash}p{3cm}}
-    \newcolumntype{f}{>{\raggedright\arraybackslash}p{0.25cm}}
-    \newcolumntype{v}{X}
-    % Force cells to align content to the centre
-    \renewcommand\cellalign{cc}
-    \begin{tabularx}{1\textwidth}{iv}
-      \makecell[{{p{3cm}}}]{\includegraphics[scale = 0.2]{#1}}
-        & \makecell[{{p{\textwidth - 3\tabcolsep - 3cm - 2\arrayrulewidth}}}]{
-          \begin{tabularx}{\textwidth - 3\tabcolsep - 3cm - 2\arrayrulewidth}{fv}
-            \textcolor{light-gray}{\faEnvelope} & \href{mailto:#2}{#2} \tabularnewline
-            \textcolor{light-gray}{\faLinkedin} & \href{#3}{#3} \tabularnewline
-            \textcolor{light-gray}{\faGithub} & \href{#4}{#4} \tabularnewline
-          \end{tabularx}
-        }  \tabularnewline
-    \end{tabularx}
-  \end{table}
-}
-
 % Make a fancy contact card
 % #1: image path for includegraphics
 % #2: image scale factor
@@ -242,17 +221,24 @@
 \begin{table}[H]
   % \caption{Count of vulnerabilities}
   \label{tab:vulncount}
-  \newcolumntype{v}{X}
-  \begin{tabularx}{1\textwidth}{|v|v|v|v|}
+  \newcolumntype{v}{>{\centering\arraybackslash}X}
+  \begin{tabularx}{1\textwidth}{v|v|v|v}
+    \arrayrulecolor{ultralight-gray}
     \hline
-    \cellcolor{critical-red!75}\textbf{Critical} & \cellcolor{high-red!75}\textbf{High} & \cellcolor{medium-amber!75}\textbf{Medium} & \cellcolor{low-amber!75}\textbf{Low} \tabularnewline \hline
-    \cellcolor{critical-red!25}\textbf{#1} & \cellcolor{high-red!25}\textbf{#2} & \cellcolor{medium-amber!25}\textbf{#3} & \cellcolor{low-amber!25}\textbf{#4} \tabularnewline \hline
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_crit]{\textcolor{critical-red!75}{\LARGE\textbf{\textsc{Critical}}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_high]{\textcolor{high-red!75}{\LARGE\textbf{\textsc{High}}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_med]{\textcolor{medium-amber!75}{\LARGE\textbf{\textsc{Medium}}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_low]{\textcolor{low-amber!75}{\LARGE\textbf{\textsc{Low}}}} \tabularnewline % \hline
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_crit]{\textcolor{critical-red}{\Huge\textbf{#1}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_high]{\textcolor{high-red}{\Huge\textbf{#2}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_med]{\textcolor{medium-amber}{\Huge\textbf{#3}}} &
+    \cellcolor{terminalbg-gray!25}\hyperref[sec:vuln_low]{\textcolor{low-amber}{\Huge\textbf{#4}}} \tabularnewline \hline
   \end{tabularx}
 \end{table}
 }
 
-% Make a vector/affected URLs listing table
-\NewEnviron{pentesturllisting}[2]{
+% Make a display table
+\NewEnviron{displaytable}[2]{
   \begin{table}[H]
     % This argument allows us to set labels and captions optionally for the table
     #1
@@ -261,11 +247,21 @@
     \begin{tabularx}{1\textwidth}{|v|}
       \arrayrulecolor{ultralight-gray}
       \hline
-      \cellcolor{ultralight-gray}\textbf{#2} \tabularnewline \hline
+      \vspace{1pt}\cellcolor{ultralight-gray}\textcolor{deep-gray}{\large\textbf{\textsc{#2}}} \tabularnewline \hline
       \cellcolor{terminalbg-gray}\makecell[{{p{1\textwidth}}}]{
         \BODY
       } \tabularnewline \hline
     \end{tabularx}
   \end{table}
+}
+
+% Make a display table itemize
+% TODO: Make so the list type is a param and also so more opts can be added by param
+\newcommand{\makedisplaytableitemize}[3]{
+  \begin{displaytable}{#1}{#2}
+    \begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0pt,parsep=0pt]
+      #3
+    \end{itemize}
+  \end{displaytable}
 }
 % -
