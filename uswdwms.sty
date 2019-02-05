@@ -248,7 +248,7 @@
       \arrayrulecolor{ultralight-gray}
       \hline
       \vspace{1pt}\cellcolor{ultralight-gray}\textcolor{deep-gray}{\large\textbf{\textsc{#2}}} \tabularnewline \hline
-      \cellcolor{terminalbg-gray}\makecell[{{p{1\textwidth}}}]{
+      \cellcolor{terminalbg-gray!75}\makecell[{{p{1\textwidth}}}]{
         \BODY
       } \tabularnewline \hline
     \end{tabularx}
@@ -259,7 +259,7 @@
 % TODO: Make so the list type is a param and also so more opts can be added by param
 \newcommand{\makedisplaytableitemize}[3]{
   \begin{displaytable}{#1}{#2}
-    \begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0pt,parsep=0pt]
+    \begin{itemize}[leftmargin=2em,itemsep=0.1em,topsep=0pt,parsep=0pt]
       #3
     \end{itemize}
   \end{displaytable}
