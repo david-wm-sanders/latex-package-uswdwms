@@ -21,17 +21,24 @@
 
 % Setup header and footer
 \pagestyle{fancy}
-\makeheadersandfooters{\scriptsize\scshape \unimodulecode: \thetitle}{\scriptsize \unistudentid}{\footnotesize \DTMnow}{\footnotesize \thepage}
+% Create headers and footers with full datetime in regional text style
+% \makeheadersandfooters{\scriptsize\scshape \unimodulecode: \thetitle}{\scriptsize \unistudentid}{\footnotesize \DTMnow}{\footnotesize \thepage}
+
+% Create headers and footers with full datetime in ISO style
+\makeheadersandfooters{\scriptsize\scshape \unimodulecode: \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetstyle{iso}\DTMnow}}{\footnotesize \thepage}
+
+% Create headers and footers with full datetime in regional numeric style
+% \makeheadersandfooters{\scriptsize\scshape \unimodulecode: \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetregional[numeric]\DTMnow}}{\footnotesize \thepage}
 %
 
 \begin{document}
 \input{sections/_usw_titlepage.tex}
-
 \tableofcontents
+
 \pagebreak
-
-
 \section{Sample}
 blah blah blah
+
+% \noindent {\DTMsetstyle{iso}\today}
 
 \end{document}
