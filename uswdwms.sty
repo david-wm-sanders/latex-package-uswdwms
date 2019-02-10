@@ -28,9 +28,9 @@
 % -
 
 % Configuration
-% Hack some nicer url-breaking - force breaks at dashes/hyphens in URLS!
-% TODO: Improve to add to UrlBreaks rather than overwriting
-\def\UrlBreaks{\do\/\do-}
+% Hack some nicer URL-breaking - force breaks at dashes/hyphens in URLS!
+% \def\UrlBreaks{\do\/\do\-}
+\makeatletter \g@addto@macro{\UrlBreaks}{\do\/\do\-} \makeatother
 % Configure colours
 \definecolor{terminalbg-gray}{gray}{0.95}
 \definecolor{ultralight-gray}{gray}{0.9}
