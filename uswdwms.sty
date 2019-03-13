@@ -1,8 +1,8 @@
 % Packages imported by the style with some configuration for certain packages
+\usepackage{fontspec}
 \usepackage[T1]{fontenc}
 \usepackage[UKenglish]{babel}
 \usepackage[useregional]{datetime2}
-% \usepackage[useregional,showdow]{datetime2}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[a4paper, margin=0.75in]{geometry}
@@ -25,11 +25,18 @@
 \usepackage{latexsym}
 \usepackage[newfloat]{minted}
 \usepackage{environ}
-\usepackage{fontawesome}
+% \usepackage{fontawesome}
+\usepackage[fixed]{fontawesome5}
 \usepackage{layouts}
+\usepackage{tikz}
 % -
 
 % Configuration
+% Set some custom lengths
+\newlength{\skiplistingcaptionlen}
+\setlength{\skiplistingcaptionlen}{0pt}
+\newlength{\skipfigurecaptionlen}
+\setlength{\skipfigurecaptionlen}{5pt}
 % Hack some nicer URL-breaking - force breaks at dashes/hyphens in URLS!
 % \def\UrlBreaks{\do\/\do\-}
 \makeatletter \g@addto@macro{\UrlBreaks}{\do\/\do\-} \makeatother
@@ -46,13 +53,17 @@
 \definecolor{medium-amber}{HTML}{f9a009}
 \definecolor{low-amber}{HTML}{ffcb0d}
 % Reconfigure hyperref
-\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=nicer-blue}
+\hypersetup{colorlinks=true, linkcolor=nicer-blue, citecolor=black, urlcolor=nicer-blue}
 % Set the default graphicx path
 \graphicspath{{images/}}
-% Change font to Palatino
-\renewcommand{\rmdefault}{ppl}
+% Modify fonts
+% \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\setmainfont{Palatino Linotype}
+% \setmonofont{Courier New}
+% \renewcommand{\rmdefault}{ppl}
 % Change the list item spacing
-\setlist{noitemsep}
+% \setlist{noitemsep}
+\setlist{itemsep=0.2em}
 % Set the bibliography style
 \bibliographystyle{usw}
 % Configure fancyhdr
@@ -250,7 +261,7 @@
       \arrayrulecolor{ultralight-gray}
       \hline
       \vspace{1pt}\cellcolor{ultralight-gray}\textcolor{deep-gray}{\large\textbf{\textsc{#2}}} \tabularnewline \hline
-      \cellcolor{terminalbg-gray!75}\makecell[{{p{1\textwidth}}}]{
+      \cellcolor{terminalbg-gray!75}\makecell[{{p{1\textwidth - 2\tabcolsep}}}]{
         \BODY
       } \tabularnewline \hline
     \end{tabularx}
@@ -269,4 +280,29 @@
 
 % Define a codelisting environment for multi-page minted listings
 \newenvironment{codelisting}{\captionsetup{type=listing}}{}
+
+% Circle something
+\newcommand*\listlabelcircle[1]{
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt,minimum size=3ex](C) {#1};
+  \end{tikzpicture}
+}
+
+\NewEnviron{methodology0}[0]{
+  \begin{enumerate}[leftmargin=0em,label=\protect\listlabelcircle{\Large\arabic*}]
+    \BODY
+  \end{enumerate}
+}
+
+\NewEnviron{methodology1}[0]{
+  \begin{enumerate}[label=\Roman*~\textcolor{light-gray}{|}]
+    \BODY
+  \end{enumerate}
+}
+
+\NewEnviron{methodology2}[0]{
+ \begin{enumerate}[label=\textcolor{deep-gray}{\roman*\textasciitilde}]
+   \BODY
+ \end{enumerate}
+}
 % -
