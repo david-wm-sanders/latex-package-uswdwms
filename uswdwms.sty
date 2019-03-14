@@ -1,10 +1,11 @@
 % Packages imported by the style with some configuration for certain packages
 \usepackage{fontspec}
-\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+% \usepackage[T1]{fontenc}
 \usepackage[UKenglish]{babel}
 \usepackage[useregional]{datetime2}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+% \usepackage[utf8]{inputenc}
+% \usepackage{lmodern}
 \usepackage[a4paper, margin=0.75in]{geometry}
 \usepackage{enumitem}
 \usepackage[bottom]{footmisc}
@@ -25,7 +26,6 @@
 \usepackage{latexsym}
 \usepackage[newfloat]{minted}
 \usepackage{environ}
-% \usepackage{fontawesome}
 \usepackage[fixed]{fontawesome5}
 \usepackage{layouts}
 \usepackage{tikz}
@@ -58,9 +58,10 @@
 \graphicspath{{images/}}
 % Modify fonts
 % \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-\setmainfont{Palatino Linotype}
-% \setmonofont{Courier New}
-% \renewcommand{\rmdefault}{ppl}
+% Set the font to the TeX Gyre Pagella
+\setmainfont[BoldFont = texgyrepagella-bold.otf, ItalicFont = texgyrepagella-italic.otf , BoldItalicFont = texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+% \setmainfont{Palatino Linotype} % Can be used on Windows to use the provided and licensed Palatino Linotype font
+% \setmonofont{Courier New} % Can be used to set a different monospaced font
 % Change the list item spacing
 % \setlist{noitemsep}
 \setlist{itemsep=0.2em}
