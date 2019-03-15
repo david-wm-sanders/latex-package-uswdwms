@@ -1,0 +1,19 @@
+\subsection{\LaTeX\ Packages}
+Packages are used to provide advanced functionality to \LaTeX\ documents and a large repository of publicly available packages exists at CTAN\todo{linkhere}.
+
+By refactoring common tasks \textit{(implemented as commands, environments, macros, and so in \LaTeX{})} into packages, it is possible to create documents with consistent and elegant custom title pages, informative headers and footers, modular sectioning and table of contents, linkable labels and intra-document references, helpful hyperlinks, fancy footnotes, lists, tables, figures \textit{(of images, such as screenshots, and/or charts/graphs)}, colourful code listings, lists of figures and listings, appendices, referencing in a specific bibliography style \textit{(such as the \texttt{usw.bst} included with the \texttt{uswdwms} package)}, provide simple wrapper functions to aid in document development, and so on.
+
+However, for the sake of simplicity, the \texttt{uswdwms} package imports and configures a plethora of packages in order to provide reports produced when using the package with a consistent style and to expose some more advanced primitives \textit{(such as title pages, displaytables, vulnerability count tables, forensics artefact tables, and so on)} for use by report authors, whilst also abstracting some of the complexity of writing consistent and elegant reports from report authors' hands.
+
+Packages are imported using \term{\textbackslash usepackage[options]\{package name\}}. To use the \texttt{uswdwms} package, this is done as shown in Listing~\ref{example:lst:usepackage}.
+
+\todo{write a bit about some of the packages uswdwms imports and how it sets options for them, hyperref example and modopts}
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    \usepackage{uswdwms}
+  \end{minted}
+  \caption{\LaTeX\ \texttt{\textbackslash usepackage} command example}
+  \label{example:lst:usepackage}
+\end{listing}
