@@ -7,7 +7,7 @@
 \def \unimodulecode{acs00001}
 \def \unimodulename{\LaTeX\ Reports}
 \def \unimodulelect{Humanity\\AI}
-\title{Primer for USWACS Academic and Forensic Reports}
+\title{Primer for Academic and Forensic Reports}
 \author{David Sanders}
 \def \unistudentid{dwms}
 \date{\today}
@@ -20,13 +20,10 @@
 
 % Setup header and footer
 \pagestyle{fancy}
-
 % Create headers and footers with full datetime in ISO style
 \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetstyle{iso}\DTMnow}}{\footnotesize \thepage}
-
 % Create headers and footers with full datetime in regional text style
 % \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize \DTMnow}{\footnotesize \thepage}
-
 % Create headers and footers with full datetime in regional numeric style
 % \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetregional[numeric]\DTMnow}}{\footnotesize \thepage}
 %
@@ -35,9 +32,8 @@
 \input{sections/_usw_titlepage.tex}
 \tableofcontents
 
-\pagebreak
-\section{Sample}
-blah blah blah
+% Comment this line to disable displaying the uswdwms package primer in output
+\input{sections/example/_main.tex}
 
 % \noindent {\DTMsetstyle{iso}\today}
 
