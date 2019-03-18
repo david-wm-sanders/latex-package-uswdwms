@@ -1,1 +1,18 @@
 \subsection{Headers and Footers}
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    % Setup header and footer
+    \pagestyle{fancy}
+    % Create headers and footers with full datetime in ISO style
+    \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetstyle{iso}\DTMnow}}{\footnotesize \thepage}
+    ...
+    \begin{document}
+    ...
+  \end{minted}
+  \caption{\LaTeX\ \texttt{\textbackslash makeheadersandfooters} command example}
+  \label{example:lst:makeheadersandfooters}
+\end{listing}
+
+\todo{above listing will need rework after the def and makeuswtitlepage rewrites}
