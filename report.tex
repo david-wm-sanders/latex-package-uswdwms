@@ -2,14 +2,14 @@
 \usepackage{uswdwms}
 
 % Setup document variables
-\def \institutionid{University of South Wales}
-\def \unicoursename{Applied Cyber Security}
-\def \unimodulecode{acs00001}
-\def \unimodulename{\LaTeX\ Reports}
-\def \unimodulelect{Humanity\\AI}
+\def \organisation{University of South Wales}
+\def \division{Applied Cyber Security}
+\def \reportcode{acs00001}
+\def \reportcategory{\LaTeX\ Reports}
+\def \reportaudience{Humanity\\AI}
 \title{Primer for Academic and Forensic Reports}
 \author{David Sanders}
-\def \unistudentid{dwms}
+\def \authornick{dwms}
 \date{\today}
 
 \makeatletter
@@ -21,11 +21,11 @@
 % Setup header and footer
 \pagestyle{fancy}
 % Create headers and footers with full datetime in ISO style
-\makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetstyle{iso}\DTMnow}}{\footnotesize \thepage}
+\makeheadersandfooters{\scriptsize \reportcode: \scshape \thetitle}{\scriptsize \authornick}{\footnotesize {\DTMsetstyle{iso}\DTMnow}}{\footnotesize \thepage}
 % Create headers and footers with full datetime in regional text style
-% \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize \DTMnow}{\footnotesize \thepage}
+% \makeheadersandfooters{\scriptsize \reportcode: \scshape \thetitle}{\scriptsize \authornick}{\footnotesize \DTMnow}{\footnotesize \thepage}
 % Create headers and footers with full datetime in regional numeric style
-% \makeheadersandfooters{\scriptsize \unimodulecode: \scshape \thetitle}{\scriptsize \unistudentid}{\footnotesize {\DTMsetregional[numeric]\DTMnow}}{\footnotesize \thepage}
+% \makeheadersandfooters{\scriptsize \reportcode: \scshape \thetitle}{\scriptsize \authornick}{\footnotesize {\DTMsetregional[numeric]\DTMnow}}{\footnotesize \thepage}
 %
 
 \begin{document}
