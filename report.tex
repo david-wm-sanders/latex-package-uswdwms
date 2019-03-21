@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{uswdwms}
 
-% Setup document variables
+% Define document variables
 \def \organisation{University of South Wales}
 \def \division{Applied Cyber Security}
 \def \reportcode{acs00001}
@@ -30,17 +30,21 @@
 
 \begin{document}
 \input{sections/_usw_titlepage.tex}
+\fontsize{10pt}{10pt}\selectfont
 \tableofcontents
+\fontsize{12pt}{12pt}\selectfont
+
+% Toggle comments to enable/disable showing a list of figures in the output
+% \pagebreak
+% \listoffigures
+
+% Toggle comments to enable/disable showing a list of listings in the output
+\pagebreak
+\listoflistings
 
 % Comment this line to disable displaying the uswdwms package primer in output
 \input{sections/example/_main.tex}
 
 % \noindent {\DTMsetstyle{iso}\today}
-
-\pagebreak
-\listoffigures
-
-\pagebreak
-\listoflistings
 
 \end{document}
