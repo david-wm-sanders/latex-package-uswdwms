@@ -1,15 +1,36 @@
 \subsection{Document Classes}
-The start of a top-level \LaTeX\ \texttt{.tex} file begins with a \term{\textbackslash documentclass[...]\{...\}} definition, as shown in Listing~\ref{example:lst:document_class:report}.
+The start of a top-level \LaTeX\ \texttt{.tex} file begins with a \term{\textbackslash documentclass[options]\{class\}} definition, as shown in Listing~\ref{example:lst:document_class:report}.
 
-This command is used to configure options and set the document class. In the case of reports based on the \uswdwmspkg{}, it is used to set the default text font size \textit{(\texttt{[12pt]})} and the document class \textit{(\texttt{article})} by default only.
-
-\todo{talk about other documentclass opts such as draft, etc; and cover some other common classes like book, beamer, etc}
+This command is used to configure options and set the document class. In the case of reports based on the \uswdwmspkg{}, it is used to set the default text font size \textit{(\texttt{[12pt]})} and the document class \textit{(\texttt{\{article\}})} by default only.
 
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
   \begin{minted}{tex}
     \documentclass[12pt]{article}
   \end{minted}
-  \caption{\LaTeX\ \texttt{\textbackslash documentclass} command example}
+  \caption{\texttt{\textbackslash documentclass} command example}
   \label{example:lst:document_class:report}
 \end{listing}
+
+Other options can be set in the \texttt{\textbackslash documentclass} directive to customise the specified class. These include:
+
+\begin{itemize}
+  \item \texttt{draft} can be used to make \LaTeX\ show frames when images would be inserted and indicate hyphenation and justification issues in the output
+  \item \texttt{twocolumn} can be used to instruct \LaTeX\ to write the document with two columns
+  \item \texttt{twoside} can be used to specify that a double sided output document should be typeset - by default, the classes \texttt{article} and \texttt{report} are single-sided and the \texttt{book} class is double-sided.
+\end{itemize}
+
+Layout options, such as \texttt{a4paper} and \texttt{landscape}, could be used to customise the paper size and document layout. However, the \uswdwmspkg{} makes use of the \texttt{geometry} package for this task \textit{(shown in Listing~\ref{example:lst:document_class:usepackage_geometry})} as this package provides much more finessed options for sizing and laying out documents than the \texttt{\textbackslash documentclass} directive.
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    \usepackage[a4paper, margin=0.75in]{geometry}
+  \end{minted}
+  \caption{\texttt{geometry} package import and configuration example}
+  \label{example:lst:document_class:usepackage_geometry}
+\end{listing}
+
+\LaTeX\ also provides some other classes, such as \texttt{report} \textit{(for longer report documents that contain multiple chapters)}, \texttt{letter} \textit{(for writing letters)}, and \texttt{beamer}\footnote{\href{https://en.wikibooks.org/wiki/LaTeX/Presentations}{Wikibooks: \LaTeX{}/Presentations}} \textit{(for creating presentation slides)} that can be used in lieu of the \texttt{article} class.
+
+Further information and reading material on document classes can be found at: \href{https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Document_classes}{Wikibooks: \LaTeX{}/Document Structure}.
