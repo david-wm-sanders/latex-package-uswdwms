@@ -1,17 +1,76 @@
-\section{Installation}
+\section{Installation and Usage}
 \subsection{Installing \LaTeX\ with \texttt{MiKTeX}}
 MiKTeX provide an up-to-date distribution of \LaTeX\ that comes with cross-platform installers and an integrated package manager.
 
-To install MiKTeX, download the relevant installer\footnote{\href{https://miktex.org/download}{MiKTeX Downloads}} and, if using Windows, follow the instructions available at \href{https://miktex.org/howto/install-miktex}{https://miktex.org/howto/install-miktex}.
+To install MiKTeX:
+\begin{methodology0}
+  \item Download the relevant installer from: \href{https://miktex.org/download}{https://miktex.org/download}
+  \item For Windows, follow the instructions available at: \href{https://miktex.org/howto/install-miktex}{https://miktex.org/howto/install-miktex}
+\end{methodology0}
 
 \subsection{Installing the \uswdwmspkg{}}
-\subsubsection*{Basic}
-\todo{write basic meth about downloading the zip from the latex-package-uswdwms}
-\subsubsection*{Advanced: Version Control}
-\todo{write advanced meth on how to clone uswdwms and then use it as the basis for a new report specific repo}
+\subsubsection{Basic}
+\begin{methodology0}
+  \item Download the \uswdwmspkg{},as a ZIP archive, from:\\
+    \href{https://github.com/david-wm-sanders/latex-package-uswdwms/archive/master.zip}{\faGithub\ https://github.com/david-wm-sanders/latex-package-uswdwms/archive/master.zip}
+  \item Extract the archive to a new project directory
+\end{methodology0}
+
+\subsubsection{Advanced installation with \texttt{git}}
+\label{example:sec:advancedinstallation}
+One of the major advantages of \LaTeX\ is the text-based nature of reports \textit{(as compared to more complicated formats such as \texttt{.docx})} as this allows version control software, such as \texttt{git}, to track changes to a \LaTeX\ based report.
+
+Although an in depth tutorial on using \texttt{git} is beyond the scope of this primer, a basic methodology for using the \uswdwmspkg{} with version control is detailed hereafter:
+
+\begin{methodology0}
+  \item Create a GitHub account and set up SSH keys as per the instructions at:\\
+    \href{https://help.github.com/en/articles/connecting-to-github-with-ssh}{https://help.github.com/en/articles/connecting-to-github-with-ssh}
+  \item Clone the \uswdwmspkg{} repository with:\\
+    \term{git clone git@github.com:david-wm-sanders/latex-package-uswdwms.git}
+  \item Delete the local \texttt{.git} directory
+  \item Use \term{git init} to create a new repository
+  \item Run \term{git add .} to add existing source \textit{(from the \uswdwmspkg{} itself)} to the new repository
+  \item Commit the staged files with \term{git commit -m "Add uswdwms package framework"}
+  \item Create a new repository on your GitHub account and follow the instructions, shown after repository creation, for pushing an existing repository to GitHub
+\end{methodology0}
+
+\noindent Using a \texttt{git}-based workflow makes writing a report across multiple machines or with multiple authors significantly easier.
 
 \pagebreak
-\section{Usage}
-% \subsection{Using \LaTeX\ and the \uswdwmspkg{} with \texttt{MiKTeX}}
-\subsubsection*{Basic}
-\subsubsection*{Advanced: Version Control}
+\subsection{Usage}
+\subsubsection{Basic}
+To use the \uswdwmspkg{} framework on Windows:
+\begin{methodology0}
+  \item Ensure that:
+    \begin{itemize}
+      \item \texttt{Python3>3.6}\footnote{\href{https://www.python.org/}{Python}} is installed
+      \item The \texttt{Path} environment variable contains the \texttt{Python3x} and \texttt{Python3x\textbackslash Scripts} directories
+      \item The \texttt{PATHEXT} environment variable includes \texttt{.PY;.PYW}
+    \end{itemize}
+  \item Install Pygments\footnote{\href{https://pypi.org/project/Pygments/}{PyPI: Pygments}} with \term{pip.exe install Pygments} \textit{(this is required for syntax highlighting in code listings, with \texttt{minted})}
+  \item Check that MiKTeX, Python, and Pygments is installed correctly by compiling this primer with:\\
+   \term{python.exe .\textbackslash make.py}\\
+   \textit{(note: MiKTeX will pop up and ask to install missing packages - accept the installation of these glorious packages)}
+  \item Comment out the \texttt{\textbackslash input} directive \textit{(as shown in Listing~\ref{example:lst:installation_and_usage:inputprimer})} in \texttt{report.tex} in order to disable displaying the primer in the compiled output PDF
+  \item Add report content to \texttt{report.tex}
+  \item Regularly run \term{python.exe .\textbackslash make.py} to spot \LaTeX\ syntax error issues early
+\end{methodology0}
+
+\subsubsection{Advanced usage with \texttt{git}}
+For more complex reports:
+\begin{itemize}
+  \item Follow the advanced installation instructions in Section~\ref{example:sec:advancedinstallation} to setup a \texttt{git} repository
+  \item Separate report sections into individual \texttt{.tex} files and include them with the \texttt{\textbackslash input} directive \textit{(as demonstrated in Listing~\ref{example:lst:installation_and_usage:inputprimer})}
+  \item Add and commit changes to a local \texttt{git} repository after each distinct piece of work
+  \item Regularly push to the remote repository on GitHub to back up changes to the report
+\end{itemize}
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    % Comment this line to disable displaying the uswdwms package primer in output
+    \input{sections/example/_main.tex}
+  \end{minted}
+  \caption{\texttt{\textbackslash input} primer directive}
+  \label{example:lst:installation_and_usage:inputprimer}
+\end{listing}
