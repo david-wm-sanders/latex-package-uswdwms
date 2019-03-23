@@ -2,8 +2,8 @@
 \subsubsection{\texttt{\textbackslash def}}
 \term{\textbackslash def} is a \TeX\ primitive that can be used to define shortcuts for strings that can contain \LaTeX\ commands.
 
-Listing~\ref{example:lst:basic_syntax:def_uswdwmspkg} shows how a shortcut for ``\uswdwmspkg{}'' is defined and how it can be used in two different ways depending on its position in a sentence. This will render:\\
-A \uswdwmspkg\ primer example... in a report based on the \uswdwmspkg{}.
+Listing~\ref{example:lst:basic_syntax:def_uswdwmspkg} shows how a shortcut for ``\uswdwmspkg{}'' is defined and how it can be used in two different ways depending on its position in a sentence. % This will render:\\
+% A \uswdwmspkg\ primer example... in a report based on the \uswdwmspkg{}.
 
 Listing~\ref{example:lst:basic_syntax:def_report_preamble} shows how \term{\textbackslash def} is used to configure variables for \LaTeX\ reports based on the \uswdwmspkg{}. These variables are then used to populate the headers and footers, and the table of contents.
 
@@ -40,7 +40,7 @@ Using \term{\textbackslash def} to define variables for things such as the title
 \subsubsection{\texttt{\textbackslash let}}
 \term{\textbackslash let}\footnote{\href{https://tex.stackexchange.com/questions/258/what-is-the-difference-between-let-and-def}{\faStackExchange\ What is the difference between \textbackslash let and \textbackslash def?}} is a \TeX\ primitive that allows the content of a command to be copied into a new command.
 
-Listing~\ref{example:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that can be used without \term{\textbackslash makeatletter}.
+Listing~\ref{example:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that are usable sans \term{\textbackslash makeatletter}.
 
 It can also be very useful when using an existing command in a redefinition of the existing command is desired\footnote{\href{https://en.wikibooks.org/wiki/TeX/let}{\faBook\ Wikibooks: \TeX{}/\texttt{\textbackslash let}}}.
 
@@ -58,37 +58,58 @@ It can also be very useful when using an existing command in a redefinition of t
 \end{listing}
 
 \pagebreak
-\subsubsection*{Commands}
+\subsubsection{Commands}
+\term{\textbackslash newcommand\{\textbackslash commandname\}[<num\_args>]\{<command\_definition>\}}\footnote{\href{https://tex.stackexchange.com/questions/655/what-is-the-difference-between-def-and-newcommand}{\faStackExchange\ What is the difference between \textbackslash def and \textbackslash newcommand?}} can be used to define new commands that can require and utilise multiple arguments.
+
+The example in Listing~\ref{example:lst:basic_syntax:newcommand} creates the \term{\textbackslash term\{...\}} command. This can be used, as done in this primer, to show \term{highlighted monospace text} for commands that should be run at a terminal and/or \LaTeX\ directive examples.
+
+It should be noted that the example is itself making use of the \term{\textbackslash colorbox\{<colour>\}\{...\}} and \term{\textbackslash texttt\{...\}} commands -- nesting commands inside commands inside commands is a powerful way to develop complex ways of displaying content in a consistent fashion.
+
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
   \begin{minted}{tex}
-    % Set up an inline todo command
-    \newcommand{\todo}[1]{\textcolor{red}{todo: #1}}
+    % Set up a terminal command block
+    \newcommand{\term}[1]{\colorbox{terminalbg-gray}{\texttt{#1}}}
   \end{minted}
   \caption{\texttt{\textbackslash newcommand} command example}
-  \label{example:lst:newcommand}
+  \label{example:lst:basic_syntax:newcommand}
 \end{listing}
 
-\subsubsection*{Environments}
+\subsubsection{Environments}
+The \term{\textbackslash newenvironment\{name\}[num][default]\{before\}\{after\}} directive can be used to create new environments for use with \texttt{\textbackslash begin\{name\}} and \texttt{\textbackslash end\{name\}}.
+
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
   \begin{minted}{tex}
     % Set up a todo environment
-    \newenvironment{todoenv}
-      {\color{red}todo:}
+    \newenvironment{todoenv}[1][red]
+      {\color{#1}todo:}
       {\color{black}}
+
+    This text will be rendered in black.
+    % Use the todo environment
+    \begin{todoenv}
+      This text will be rendered in red.
+    \end{todoenv}
+    This text will be rendered in black.
+    % Use the todo environment, specifying a different colour from the default of red
+    \begin{todoenv}[deep-gray]
+      This text will be rendered in deep-gray.
+    \end{todoenv}
+    This text will be rendered in black.
   \end{minted}
   \caption{\texttt{\textbackslash newenvironment} command example}
-  \label{example:lst:newenvironment}
+  \label{example:lst:basic_syntax:newenvironment}
 \end{listing}
-\todo{should note here \textbackslash NewEnviron is much nicer}
 
-\subsubsection*{Escaping special characters}
-\todo{some characters like \_, \&, \$, \^, \~\ require escaping... this needs to be mentioned}
+\noindent\begin{todoenv}[deep-gray]
+  \begin{itemize}
+    \item note here that \texttt{\textbackslash NewEnviron} is much nicer and that examples of this can be found in \texttt{uswdwms.sty}
+  \end{itemize}
+\end{todoenv}
 
-\todo{also drop \textbackslash textbackslash (\textbackslash) and \textbackslash textasciitilde (\textasciitilde)}
-
-\subsubsection*{Styling text in \textbf{bold}, \textit{italics}, \texttt{monospace}, and \textsc{Small Capitals}}
+\pagebreak
+\subsubsection{Styling text in \textbf{bold}, \textit{italics}, \texttt{monospace}, and \textsc{Small Capitals}}
 \todo{Talk about \textbf{bold stuff}, \textit{italic stuff}, \texttt{mono stuff}, etc}
 
 \todo{Talk about \textcolor{nicer-blue}{colouring!}}

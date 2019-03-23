@@ -88,8 +88,8 @@
 \newcommand{\todo}[1]{\textcolor{red}{todo: #1}}
 
 % Set up a todo environment
-\newenvironment{todoenv}
-  {\color{red}todo:}
+\newenvironment{todoenv}[1][red]
+  {\color{#1}todo:}
   {\color{black}}
 
 % Set up a terminal command block
