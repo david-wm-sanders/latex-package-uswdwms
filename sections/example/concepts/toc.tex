@@ -1,11 +1,11 @@
 \subsection{Tables of Contents}
-Tables of contents are remarkably easy to create in \LaTeX\ -- with section levels as described in Section~\ref{example:sect:concepts:sectioning}, it is possible to dynamically create a table of contents with the \term{\textbackslash tableofcontents} command \textit{(as shown in Listing~\ref{example:lst:tableofcontents})}. The table of contents will be automatically updated as new sections are added to a document.
+Tables of contents are remarkably easy to create in \LaTeX\ -- with sections declared as described in Section~\ref{example:sect:concepts:sectioning}, it is possible to use the \term{\textbackslash tableofcontents} command \textit{(as shown in Listing~\ref{example:lst:tableofcontents})} to create a table of contents that will be populated automatically as a document is rendered.
 
-With the \texttt{hyperref} package, included and configured by default by \uswdwmspkg{}, table of contents entries will be automatically hyperlinked to the page for the section.
+With the \texttt{hyperref} package, included and configured by default by \uswdwmspkg{}, table of contents entries will be automatically hyperlinked.
 
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
-  \begin{minted}{tex}
+  \begin{minted}[highlightlines={3}]{tex}
     \begin{document}
     \input{sections/_usw_titlepage.tex}
     \tableofcontents
@@ -13,5 +13,3 @@ With the \texttt{hyperref} package, included and configured by default by \uswdw
   \caption{\texttt{\textbackslash tableofcontents} command example}
   \label{example:lst:tableofcontents}
 \end{listing}
-
-\todo{\^\ add minted line highlight?}
