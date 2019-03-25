@@ -40,7 +40,8 @@ Using \term{\textbackslash def} to define variables for things such as the title
 \subsubsection{\texttt{\textbackslash let}}
 \term{\textbackslash let}\footnote{\href{https://tex.stackexchange.com/questions/258/what-is-the-difference-between-let-and-def}{\faStackExchange\ What is the difference between \textbackslash let and \textbackslash def?}} is a \TeX\ primitive that allows the content of a command to be copied into a new command.
 
-Listing~\ref{example:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that are usable sans \term{\textbackslash makeatletter}.
+Listing~\ref{example:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that are usable sans \term{\textbackslash makeatletter}\footnote{\href{https://tex.stackexchange.com/questions/8351/what-do-makeatletter-and-makeatother-do}{\faStackExchange\ What do \textbackslash makeatletter and \textbackslash makeatother do?
+}}.
 
 It can also be very useful when using an existing command in a redefinition of the existing command is desired\footnote{\href{https://en.wikibooks.org/wiki/TeX/let}{\faBook\ Wikibooks: \TeX{}/\texttt{\textbackslash let}}}.
 
@@ -109,7 +110,12 @@ The \term{\textbackslash newenvironment\{name\}[num][default]\{before\}\{after\}
 \end{todoenv}
 
 \pagebreak
-\subsubsection{Styling text in \textbf{bold}, \textit{italics}, \texttt{monospace}, and \textsc{Small Capitals}}
-\todo{Talk about \textbf{bold stuff}, \textit{italic stuff}, \texttt{mono stuff}, etc}
-
-\todo{Talk about \textcolor{nicer-blue}{colouring!}}
+\subsubsection{Styling text}
+\begin{description}
+  \item[\textbf{Bold}] \ \\\\Use \term{\textbackslash textbf\{...\}} to render text in \textbf{bold}\\
+  \item[\textit{Italics}] \ \\\\Use \term{\textbackslash textit\{...\}} to render text in \textit{italics}\\
+  \item[\textbf{\textit{Bold Italics}}] \ \\\\Use \term{\textbackslash textbf\{\textbackslash textit\{...\}\}} to render text in \textbf{\textit{bold italics}}\\
+  \item[\texttt{Monospace}] \ \\\\Use \term{\textbackslash texttt\{...\}} to render text in \texttt{monospace}\\
+  \item[\textsc{Small Capitals}] \ \\\\Use \term{\textbackslash textsc\{...\}} to render text in \textsc{Small Capitals}\\
+  \item[\underline{Underlined}] \ \\\\Use \term{\textbackslash underline\{...\}} to \underline{underline text}\\
+\end{description}
