@@ -1,11 +1,8 @@
 % Packages imported by the style with some configuration for certain packages
 \usepackage{fontspec}
 \usepackage{mathpazo}
-% \usepackage[T1]{fontenc}
 \usepackage[UKenglish]{babel}
 \usepackage[useregional]{datetime2}
-% \usepackage[utf8]{inputenc}
-% \usepackage{lmodern}
 \usepackage[a4paper, margin=0.75in]{geometry}
 \usepackage{enumitem}
 \usepackage[bottom]{footmisc}
@@ -31,15 +28,18 @@
 \usepackage{tikz}
 % -
 
-% Configuration
+% Configuration %
 % Set some custom lengths
 \newlength{\skiplistingcaptionlen}
 \setlength{\skiplistingcaptionlen}{0pt}
 \newlength{\skipfigurecaptionlen}
 \setlength{\skipfigurecaptionlen}{5pt}
+
 % Hack some nicer URL-breaking - force breaks at dashes/hyphens in URLS!
-% \def\UrlBreaks{\do\/\do\-}
-\makeatletter \g@addto@macro{\UrlBreaks}{\do\/\do\-} \makeatother
+% \makeatletter % not required as cat codes are set appropriately already in .sty files
+\g@addto@macro{\UrlBreaks}{\do\/\do\-}
+% \makeatother % not required as cat codes are set appropriately already in .sty files
+
 % Configure colours
 \definecolor{terminalbg-gray}{gray}{0.95}
 \definecolor{ultralight-gray}{gray}{0.9}
@@ -47,26 +47,32 @@
 \definecolor{fader-gray}{gray}{0.5}
 \definecolor{deep-gray}{gray}{0.4}
 \definecolor{nicer-blue}{HTML}{005cc5}
-% Configure vuln colours
+% Configure vulnerability category colours
 \definecolor{critical-red}{HTML}{cc0500}
 \definecolor{high-red}{HTML}{df3d03}
 \definecolor{medium-amber}{HTML}{f9a009}
 \definecolor{low-amber}{HTML}{ffcb0d}
-% Reconfigure hyperref
+
+% Reconfigure hyperref now that the nicer-blue colour is defined
 \hypersetup{colorlinks=true, linkcolor=nicer-blue, citecolor=black, urlcolor=nicer-blue}
+
 % Set the default graphicx path
 \graphicspath{{images/}}
+
 % Modify fonts
 % \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 % Set the font to the TeX Gyre Pagella
 \setmainfont{texgyrepagella}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
 % \setmainfont{Palatino Linotype} % Can be used on Windows to use the provided and licensed Palatino Linotype font
 % \setmonofont{Courier New} % Can be used to set a different monospaced font
+
 % Change the list item spacing
 % \setlist{noitemsep}
 \setlist{itemsep=0.2em}
+
 % Set the bibliography style
 \bibliographystyle{usw}
+
 % Configure fancyhdr
 \renewcommand{\headrulewidth}{0.1mm}
 \renewcommand{\footrulewidth}{0.1mm}
@@ -78,6 +84,7 @@
   % \vspace*{0.8mm}\vspace*{\baselineskip}
   \textcolor{light-gray}{\rule{\linewidth}{\footrulewidth}}
 }
+
 % Set the default minted style
 \usemintedstyle{rainbow_dash}
 \setminted{autogobble,breaklines,fontsize=\small,frame=leftline,framerule=0.2pt,framesep=2mm,linenos,numbersep=3pt,python3,rulecolor=ultralight-gray}
