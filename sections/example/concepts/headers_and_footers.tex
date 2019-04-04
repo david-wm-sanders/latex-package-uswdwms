@@ -1,4 +1,7 @@
 \subsection{Headers and Footers}
+Headers and footers for the entire document can be set before the \term{\textbackslash begin\{document\}} declaration.
+
+The \uswdwmspkg\ provides a shortcut command \textit{(demonstrated in Listing~\ref{example:lst:makeheadersandfooters})} that allows report authors to set the headers and footers, in the default colour of \textcolor{light-gray}{light-gray}, in the order top-left, top-right, bottom-left, and bottom-right.
 
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
@@ -13,4 +16,42 @@
   \end{minted}
   \caption{\texttt{\textbackslash makeheadersandfooters} command example}
   \label{example:lst:makeheadersandfooters}
+\end{listing}
+
+\subsubsection*{Internals}
+
+The internal implementation of \term{\textbackslash makeheadersandfooters} is shown in Listing~\ref{example:lst:makeheadersandfooters_implementation}. This command only handles inserting and colouring the content provided into the correct places in the headers and footers -- configuration of the lines that separate the headers and footers from the main body content of the document is performed separately in the \uswdwmspkg\ code \textit{(as shown in Listing~\ref{example:lst:fancyhdr_config})}.
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    % Make fancy headers and footers for reports
+    \newcommand{\makeheadersandfooters}[4]{
+      \fancyhf{}
+      \lhead{\textcolor{light-gray}{#1}}
+      \rhead{\textcolor{light-gray}{#2}}
+      \lfoot{\textcolor{light-gray}{#3}}
+      \rfoot{\textcolor{light-gray}{#4}}
+    }
+  \end{minted}
+  \caption{\texttt{\textbackslash makeheadersandfooters} internal implementation}
+  \label{example:lst:makeheadersandfooters_implementation}
+\end{listing}
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}{tex}
+    % Configure fancyhdr
+    \renewcommand{\headrulewidth}{0.1mm}
+    \renewcommand{\footrulewidth}{0.1mm}
+    \renewcommand{\headrule}{
+      \vspace{0.8mm}\vspace{-\baselineskip}
+      \textcolor{light-gray}{\rule{\linewidth}{\headrulewidth}}
+    }
+    \renewcommand{\footrule}{
+      \textcolor{light-gray}{\rule{\linewidth}{\footrulewidth}}
+    }
+  \end{minted}
+  \caption{\texttt{fancyhdr} configuration in the \uswdwmspkg{}}
+  \label{example:lst:fancyhdr_config}
 \end{listing}
