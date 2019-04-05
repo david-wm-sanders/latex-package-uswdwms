@@ -2,10 +2,10 @@
 \subsubsection{\texttt{\textbackslash def}}
 \term{\textbackslash def} is a \TeX\ primitive that can be used to define shortcuts for strings that can contain \LaTeX\ commands.
 
-Listing~\ref{example:lst:basic_syntax:def_uswdwmspkg} shows how a shortcut for ``\uswdwmspkg{}'' is defined and how it can be used in two different ways depending on its position in a sentence. % This will render:\\
+Listing~\ref{primer:lst:basic_syntax:def_uswdwmspkg} shows how a shortcut for ``\uswdwmspkg{}'' is defined and how it can be used in two different ways depending on its position in a sentence. % This will render:\\
 % A \uswdwmspkg\ primer example... in a report based on the \uswdwmspkg{}.
 
-Listing~\ref{example:lst:basic_syntax:def_report_preamble} shows how \term{\textbackslash def} is used to configure variables for \LaTeX\ reports based on the \uswdwmspkg{}. These variables are then used to populate the headers and footers, and the table of contents.
+Listing~\ref{primer:lst:basic_syntax:def_report_preamble} shows how \term{\textbackslash def} is used to configure variables for \LaTeX\ reports based on the \uswdwmspkg{}. These variables are then used to populate the headers and footers, and the table of contents.
 
 Using \term{\textbackslash def} to define variables for things such as the title means that if changing the title of the report becomes necessary in the future then only one line of the \LaTeX\ document source needs to be modified -- the modification will then apply everywhere the shortcut is used.
 
@@ -17,7 +17,7 @@ Using \term{\textbackslash def} to define variables for things such as the title
     A \uswdwmspkg\ primer example... in a report based on the \uswdwmspkg{}.
   \end{minted}
   \caption{\texttt{\textbackslash def \textbackslash uswdwmspkg} command example}
-  \label{example:lst:basic_syntax:def_uswdwmspkg}
+  \label{primer:lst:basic_syntax:def_uswdwmspkg}
 \end{listing}
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
@@ -34,13 +34,13 @@ Using \term{\textbackslash def} to define variables for things such as the title
     \date{\today}
   \end{minted}
   \caption{\texttt{\textbackslash def} report preamble example}
-  \label{example:lst:basic_syntax:def_report_preamble}
+  \label{primer:lst:basic_syntax:def_report_preamble}
 \end{listing}
 
 \subsubsection{\texttt{\textbackslash let}}
 \term{\textbackslash let}\footnote{\href{https://tex.stackexchange.com/questions/258/what-is-the-difference-between-let-and-def}{\faStackExchange\ What is the difference between \textbackslash let and \textbackslash def?}} is a \TeX\ primitive that allows the content of a command to be copied into a new command.
 
-Listing~\ref{example:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that are usable sans \term{\textbackslash makeatletter}\footnote{\href{https://tex.stackexchange.com/questions/8351/what-do-makeatletter-and-makeatother-do}{\faStackExchange\ What do \textbackslash makeatletter and \textbackslash makeatother do?
+Listing~\ref{primer:lst:basic_syntax:let} shows how \term{\textbackslash let} is used in \texttt{report.tex} to copy the contents set by the \texttt{\textbackslash title}, \texttt{\textbackslash author}, and \texttt{\textbackslash date} directives into separate variables that are usable sans \term{\textbackslash makeatletter}\footnote{\href{https://tex.stackexchange.com/questions/8351/what-do-makeatletter-and-makeatother-do}{\faStackExchange\ What do \textbackslash makeatletter and \textbackslash makeatother do?
 }}.
 
 It can also be very useful when using an existing command in a redefinition of the existing command is desired\footnote{\href{https://en.wikibooks.org/wiki/TeX/let}{\faBook\ Wikibooks: \TeX{}/\texttt{\textbackslash let}}}.
@@ -55,14 +55,14 @@ It can also be very useful when using an existing command in a redefinition of t
     \makeatother
   \end{minted}
   \caption{\texttt{\textbackslash let} command example}
-  \label{example:lst:basic_syntax:let}
+  \label{primer:lst:basic_syntax:let}
 \end{listing}
 
 \pagebreak
 \subsubsection{Commands}
 \term{\textbackslash newcommand\{\textbackslash commandname\}[<num\_args>]\{<command\_definition>\}}\footnote{\href{https://tex.stackexchange.com/questions/655/what-is-the-difference-between-def-and-newcommand}{\faStackExchange\ What is the difference between \textbackslash def and \textbackslash newcommand?}} can be used to define new commands that can require and utilise multiple arguments.
 
-The example in Listing~\ref{example:lst:basic_syntax:newcommand} creates the \term{\textbackslash term\{...\}} command. This can be used, as done in this primer, to show \term{highlighted monospace text} for commands that should be run at a terminal and/or \LaTeX\ directive examples.
+The example in Listing~\ref{primer:lst:basic_syntax:newcommand} creates the \term{\textbackslash term\{...\}} command. This can be used, as done in this primer, to show \term{highlighted monospace text} for commands that should be run at a terminal and/or \LaTeX\ directive examples.
 
 It should be noted that the example is itself making use of the \term{\textbackslash colorbox\{<colour>\}\{...\}} and \term{\textbackslash texttt\{...\}} commands -- nesting commands inside commands inside commands is a powerful way to develop complex ways of displaying content in a consistent fashion.
 
@@ -73,7 +73,7 @@ It should be noted that the example is itself making use of the \term{\textbacks
     \newcommand{\term}[1]{\colorbox{terminalbg-gray}{\texttt{#1}}}
   \end{minted}
   \caption{\texttt{\textbackslash newcommand} command example}
-  \label{example:lst:basic_syntax:newcommand}
+  \label{primer:lst:basic_syntax:newcommand}
 \end{listing}
 
 \subsubsection{Environments}
@@ -100,7 +100,7 @@ The \term{\textbackslash newenvironment\{name\}[num][default]\{before\}\{after\}
     This text will be rendered in black.
   \end{minted}
   \caption{\texttt{\textbackslash newenvironment} command example}
-  \label{example:lst:basic_syntax:newenvironment}
+  \label{primer:lst:basic_syntax:newenvironment}
 \end{listing}
 
 \noindent\begin{todoenv}[deep-gray]

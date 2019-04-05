@@ -17,7 +17,7 @@ To install MiKTeX:
 \end{methodology0}
 
 \subsubsection{Advanced installation with \texttt{git}}
-\label{example:sec:advancedinstallation}
+\label{primer:sec:advancedinstallation}
 One of the major advantages of \LaTeX\ is the text-based nature of reports \textit{(as compared to more complicated formats such as \texttt{.docx})} as this allows version control software, such as \texttt{git}, to track changes to a \LaTeX\ based report.
 
 Although an in depth tutorial on using \texttt{git} is beyond the scope of this primer, a basic methodology for using the \uswdwmspkg{} with version control is detailed hereafter:
@@ -51,7 +51,7 @@ To use the \uswdwmspkg{} framework on Windows:
   \item Check that MiKTeX, Python, and Pygments is installed correctly by compiling this primer with:\\
    \term{python.exe .\textbackslash make.py}\\
    \textit{(note: MiKTeX will pop up and ask to install missing packages - accept the installation of these glorious packages)}
-  \item Comment out the \texttt{\textbackslash input} directive \textit{(as shown in Listing~\ref{example:lst:installation_and_usage:inputprimer})} in \texttt{report.tex} in order to disable displaying the primer in the compiled output PDF
+  \item Comment out the \texttt{\textbackslash input} directive \textit{(as shown in Listing~\ref{primer:lst:installation_and_usage:inputprimer})} in \texttt{report.tex} in order to disable displaying the primer in the compiled output PDF
   \item Add report content to \texttt{report.tex}
   \item Regularly run \term{python.exe .\textbackslash make.py} to spot \LaTeX\ syntax error issues early
 \end{methodology0}
@@ -59,8 +59,8 @@ To use the \uswdwmspkg{} framework on Windows:
 \subsubsection{Advanced usage with \texttt{git}}
 For more complex reports:
 \begin{itemize}
-  \item Follow the advanced installation instructions in Section~\ref{example:sec:advancedinstallation} to setup a \texttt{git} repository
-  \item Separate report sections into individual \texttt{.tex} files and include them with the \texttt{\textbackslash input} directive \textit{(as demonstrated in Listing~\ref{example:lst:installation_and_usage:inputprimer})}
+  \item Follow the advanced installation instructions in Section~\ref{primer:sec:advancedinstallation} to setup a \texttt{git} repository
+  \item Separate report sections into individual \texttt{.tex} files and include them with the \texttt{\textbackslash input} directive \textit{(as demonstrated in Listing~\ref{primer:lst:installation_and_usage:inputprimer})}
   \item Add and commit changes to the local \texttt{git} repository after each distinct piece of work
   \item Regularly push to the remote repository on GitHub to back up changes to the report
 \end{itemize}
@@ -72,5 +72,5 @@ For more complex reports:
     \input{sections/example/_main.tex}
   \end{minted}
   \caption{\texttt{\textbackslash input} primer directive}
-  \label{example:lst:installation_and_usage:inputprimer}
+  \label{primer:lst:installation_and_usage:inputprimer}
 \end{listing}
