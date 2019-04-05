@@ -1,1 +1,22 @@
 \subsection{Labels and References}
+Labels and references can be used to provide internal references, within the output PDF, to content that is numbered automatically by the \LaTeX\ typesetter at the point of compilation. This can include references to sections \textit{(such as Section~\ref{example:sec:concepts:sectioning})}, figures, tables, listings \textit{(such as Listing~\ref{example:lst:label_section})}, and so on.
+
+\subsubsection*{Creating labels}
+Labels are created with the \term{\textbackslash label\{...\}} command. To label sections, the label can be inserted below the sectioning command \textit{(as shown in Listing~\ref{example:lst:label_section})}.
+
+Labels for figures, tables, and listings are defined inside the relevant parent's environment. This is explored in more detail in the relevant sections: figures \textit{(\ref{example:sec:concepts:figures})}, tables \textit{(\ref{example:sec:concepts:tables})}, and listings \textit{(\ref{example:sec:concepts:listings})}.
+
+\todo{mention some naming conventions for labels}
+
+\begin{listing}[H]
+  \captionsetup{skip=\skiplistingcaptionlen}
+  \begin{minted}[highlightlines={2}]{tex}
+    \subsection{Sectioning}
+    \label{example:sec:concepts:sectioning}
+  \end{minted}
+  \caption{\texttt{\textbackslash label} sectioning command example}
+  \label{example:lst:label_section}
+\end{listing}
+
+\subsubsection*{Referencing labels}
+\todo{write...}
