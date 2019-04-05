@@ -1,12 +1,17 @@
 \subsection{Labels and References}
+\label{primer:sec:concepts:labels_and_refs}
 Labels and references can be used to provide internal references, within the output PDF, to content that is numbered automatically by the \LaTeX\ typesetter at the point of compilation. This can include references to sections \textit{(such as Section~\ref{primer:sec:concepts:sectioning})}, figures, tables, listings \textit{(such as Listing~\ref{primer:lst:label_section})}, and so on.
+
+This section will hopefully provide illumination of the basics of labels and referencing within \LaTeX\ documents but more in-depth information can be found at: \href{https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}{\faBook\ Wikibooks: \LaTeX{}/Labels and Cross-referencing}.
 
 \subsubsection*{Creating labels}
 Labels are created with the \term{\textbackslash label\{...\}} command. To label sections, the label can be inserted below the sectioning command \textit{(as shown in Listing~\ref{primer:lst:label_section})}.
 
 Labels for figures, tables, and listings are defined inside the relevant parent's environment. This is explored in more detail in the relevant sections: figures \textit{(\ref{primer:sec:concepts:figures})}, tables \textit{(\ref{primer:sec:concepts:tables})}, and listings \textit{(\ref{primer:sec:concepts:listings})}.
 
-\todo{mention some naming conventions for labels}
+Conventions for label prefixes exist and some examples are: \texttt{sec:} \textit{(for sections)}, \texttt{app:} \textit{(for appendices)}, \texttt{fig:} \textit{(for figures)}, \texttt{tab:} \textit{(for tables)}, and \texttt{lst:} \textit{(for listings)}.
+
+% In this primer, all label identifiers have been prefixed with \term{primer:} to namespace them away from other labels and, hopefully, reduce any chance of conflicts occurring.
 
 \begin{listing}[H]
   \captionsetup{skip=\skiplistingcaptionlen}
@@ -19,4 +24,19 @@ Labels for figures, tables, and listings are defined inside the relevant parent'
 \end{listing}
 
 \subsubsection*{Referencing labels}
-\todo{write...}
+Several commands exist for referencing labels depending on the type of reference that is desired.
+\paragraph{\texttt{\textbackslash ref}}\mbox{}\\\\
+The \texttt{\textbackslash ref} command can be used to provide a numeric reference \textit{(as seen throughout this primer for referencing specific sections and listings)}.\\
+Example: \term{Section\textasciitilde\textbackslash ref\{label\_name\}}
+
+\paragraph{\texttt{\textbackslash pageref}}\mbox{}\\\\
+The \texttt{\textbackslash pageref} command can be used to provide a reference to the page number that the content marked by the label appears on.\\
+Example: \term{page\textasciitilde\textbackslash pageref\{label\_name\}}
+
+\paragraph{\texttt{\textbackslash nameref}}\mbox{}\\\\
+The \texttt{\textbackslash nameref} command is added by the \texttt{hyperref} package and can be used to provide a named reference for sections such as~\nameref{primer:sec:concepts:labels_and_refs}.\\
+Example: \term{such as\textasciitilde\textbackslash nameref\{primer:sec:concepts:labels\_and\_refs\}}
+
+\paragraph{\texttt{\textbackslash hyperref}}\mbox{}\\\\
+The \texttt{\textbackslash hyperref} command is added by the \texttt{hyperref} package and can be used to provide a named reference to content marked by a label when there is a desire to explicitly specify the link text.\\
+Example: \term{\textbackslash hyperref[label\_name]\{link\_text\}}
