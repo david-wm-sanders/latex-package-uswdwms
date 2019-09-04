@@ -1,13 +1,22 @@
+import platform
 import subprocess
 from pathlib import Path
 
-# TODO: Add this?
-# .\venv\Scripts\python.exe .\make_full_code_listings.py ..\uswacs-2-iy2d502-salapp\ --not-files=.env,sec_requirements.txt --not-dirs=migrations
 
-print(f"Making report...")
-commands = [["xelatex.exe", "-shell-escape", "report.tex"],
-            ["bibtex.exe", "report.aux"],
-            ["xelatex.exe", "-shell-escape", "report.tex"],
-            ["xelatex.exe", "-shell-escape", "report.tex"]]
-for command in commands:
-    subprocess.run(command)
+project_main = "report"
+
+
+def executable(program):
+    extension = ".exe" if platform.system() == "Windows" else ""
+    return f"{program}{extension}"
+
+
+if __name__ == '__main__':
+    print(f"Making report...")
+    xelatex, bibtex = executable("xelatex"), executable("bibtex")
+    commands = [[xelatex, "-shell-escape", f"{project_main}.tex"],
+                [bibtex, f"{project_main}.aux"],
+                [xelatex, "-shell-escape", f"{project_main}.tex"],
+                [xelatex, "-shell-escape", f"{project_main}.tex"]]
+    for command in commands:
+        subprocess.run(command)
